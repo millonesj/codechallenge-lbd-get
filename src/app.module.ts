@@ -10,6 +10,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './infraestructure/config/type-orm-config';
 import { CharacterService } from './application/character.service';
 import { CharacterProfileHistory } from './domain/character-profile-history.entity';
+import { RedisCacheModule } from './infraestructure/cache/redis-cache.module';
 
 @Module({
   imports: [

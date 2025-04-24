@@ -21,7 +21,7 @@ export class CharacterService extends BaseService<CharacterProfileHistory> {
     );
     const { id } = await this.characterProfileRepository.save(createdRecord);
 
-    this.logger.debug(`${this.getNamespace()}.create`, {
+    this.logger.log(`${this.getNamespace()}.create`, {
       created: id,
     });
 
@@ -29,7 +29,7 @@ export class CharacterService extends BaseService<CharacterProfileHistory> {
   }
 
   async findOne(id: number): Promise<any | boolean> {
-    this.logger.debug(`${this.getNamespace()}.findOne`, {
+    this.logger.log(`${this.getNamespace()}.findOne`, {
       id,
     });
 
@@ -44,7 +44,7 @@ export class CharacterService extends BaseService<CharacterProfileHistory> {
       return false;
     }
 
-    this.logger.debug(`${this.getNamespace()}.findOne`, {
+    this.logger.log(`${this.getNamespace()}.findOne`, {
       id,
       isFound: true,
     });

@@ -29,4 +29,10 @@ export default () => ({
     url: process.env.UNSPLASH_URL,
     clientId: process.env.URL_CLIENT_ID_UNSPLASH,
   },
+  redis: {
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT,
+    tll: process.env.REDIS_CACHE_TTL,
+    max: process.env.REDIS_MAX_ITEM_IN_CACHE,
+  },
 });
