@@ -3,7 +3,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as https from 'https';
 import { StarWarsCharacterI } from './character.interface';
-import { RedisCacheService } from 'src/infraestructure/cache/redis-cache.service';
+import { RedisCacheService } from '../../cache/redis-cache.service';
 
 @Injectable()
 export class SwapiService {

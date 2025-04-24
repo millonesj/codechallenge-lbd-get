@@ -1,11 +1,11 @@
 import { Controller, Get, Param, Query, Response } from '@nestjs/common';
 import { Throttle } from '@nestjs/throttler';
-import { AppService } from 'src/application/app.service';
+import { AppService } from '../application/app.service';
 import { FindOnePeopleDto } from './fusionados/find-one.people.dto';
 import { CharacterProfileHistoryPaginationDto } from './historial/character-profile-history-pagination.dto';
-import { CharacterService } from 'src/application/character.service';
+import { CharacterService } from '../application/character.service';
 import { ApiOperation, ApiParam, ApiQuery, ApiResponse } from '@nestjs/swagger';
-import { CharacterProfileDto } from 'src/application/character-profile.dto';
+import { CharacterProfileDto } from '../application/character-profile.dto';
 
 @Controller()
 export class AppController {

@@ -1,4 +1,4 @@
-import { CustomException } from 'src/infraestructure/exceptions/custom-exception';
+import { CustomException } from '../../exceptions/custom-exception';
 import { IDtoErrorException } from '../interfaces/dto-error-exception.interface';
 import { ErrorException } from '../interfaces/error-response.interface';
 

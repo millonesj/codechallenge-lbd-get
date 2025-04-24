@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { SwapiService } from 'src/infraestructure/external-services/swapi/swapi.service';
-import { UnsplashService } from 'src/infraestructure/external-services/unsplash/unsplash.service';
+import { SwapiService } from '../infraestructure/external-services/swapi/swapi.service';
+import { UnsplashService } from '../infraestructure/external-services/unsplash/unsplash.service';
 import { CharacterProfileI } from './chracter-profile.interface';
 import { CharacterService } from './character.service';
 

@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { BaseEntity } from 'src/infraestructure/common/base.entity';
+import { BaseEntity } from '../infraestructure/common/base.entity';
 
 @Entity({
   name: 'character_profile_history',

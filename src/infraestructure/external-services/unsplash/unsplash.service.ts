@@ -2,7 +2,7 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { SearchImageI } from './image.interface';
-import { RedisCacheService } from 'src/infraestructure/cache/redis-cache.service';
+import { RedisCacheService } from '../../cache/redis-cache.service';
 
 @Injectable()
 export class UnsplashService {

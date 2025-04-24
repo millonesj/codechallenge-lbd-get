@@ -1,5 +1,5 @@
 import { HttpStatus } from '@nestjs/common';
-import { errorCodes } from 'src/infraestructure/config/error-messages';
+import { errorCodes } from '../../config/error-messages';
 import { IDtoErrorException } from '../interfaces/dto-error-exception.interface';
 import { ErrorException } from '../interfaces/error-response.interface';
 

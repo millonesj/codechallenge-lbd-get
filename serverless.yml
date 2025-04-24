@@ -7,6 +7,53 @@ provider:
   memorySize: 512
   timeout: 15
   stage: dev
+  vpc:
+    securityGroupIds:
+      - sg-0ac67a4f3b89dcfa6
+      - sg-00851de09a9d62db7
+      - sg-00bc5fe7597aeb482
+      - sg-04fc4f04b46b8576b 
+    subnetIds:
+      - subnet-0710e1a96c9555c89
+      - subnet-0285dd137c90fd7e6
+      - subnet-078ce3680224d86db
+      - subnet-06c57cf1105efa3cc
+      - subnet-002e52e7381498958
+      - subnet-08889cb7ca90affeb
+ 
+  environment:
+    # App
+    TIMEZONE: ${env:TIMEZONE}
+    PORT: ${env:PORT}
+    NODE_ENV: ${env:NODE_ENV}
+
+    # Database
+    DB_HOST: ${env:DB_HOST}
+    DB_PORT: ${env:DB_PORT}
+    DB_USER: ${env:DB_USER}
+    DB_PASSWORD: ${env:DB_PASSWORD}
+    DB_DATABASE: ${env:DB_DATABASE}
+    DB_LOGGING: ${env:DB_LOGGING}
+    DB_SYNCHRONIZE: ${env:DB_SYNCHRONIZE}
+
+    # Throttler
+    THROTTLER_TTL: ${env:THROTTLER_TTL}
+    THROTTLER_LIMIT: ${env:THROTTLER_LIMIT}
+
+    # APIS
+    SWAPI_URL: ${env:SWAPI_URL}
+    UNSPLASH_URL: ${env:UNSPLASH_URL}
+    URL_CLIENT_ID_UNSPLASH: ${env:URL_CLIENT_ID_UNSPLASH}
+
+    # Redis
+    REDIS_HOST: ${env:REDIS_HOST}
+    REDIS_PORT: ${env:REDIS_PORT}
+    REDIS_CACHE_TTL: ${env:REDIS_CACHE_TTL}
+    REDIS_MAX_ITEM_IN_CACHE: ${env:REDIS_MAX_ITEM_IN_CACHE}
+
+    # Pagination
+    PAGINATION_LIMIT: ${env:PAGINATION_LIMIT}
+    PAGINATION_MAX_LIMIT: ${env:PAGINATION_MAX_LIMIT}
 
 plugins:
   - serverless-offline
