@@ -1,4 +1,4 @@
-export interface CharacterProfile {
+export interface CharacterProfileI {
   name: string;
   height: string;
   mass: string;

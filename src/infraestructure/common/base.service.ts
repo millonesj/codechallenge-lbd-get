@@ -10,14 +10,4 @@ export abstract class BaseService<T> {
   getNamespace(): string {
     return this.namespace;
   }
-
-  async deleteAll() {
-    const query = this.repository.createQueryBuilder();
-
-    try {
-      return await query.delete().where({}).execute();
-    } catch (error) {
-      console.log(error);
-    }
-  }
 }
