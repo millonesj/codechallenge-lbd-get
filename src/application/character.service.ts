@@ -53,11 +53,7 @@ export class CharacterService extends BaseService<CharacterProfileHistory> {
     return existingRecord;
   }
 
-  async findAll({
-    page,
-    limit,
-    orderBy = OrderByEnum.ASC,
-  }: CharacterProfileHistoryPaginationDto) {
+  async findAll({ page, limit }: CharacterProfileHistoryPaginationDto) {
     this.logger.log(`${this.getNamespace()}.findAll`, {
       start: true,
     });
@@ -68,7 +64,7 @@ export class CharacterService extends BaseService<CharacterProfileHistory> {
     const [items, count] = await queryBuilder
       .take(limit)
       .skip((page - 1) * limit)
-      .orderBy('ch.createdAt', orderBy)
+      .orderBy('ch.createdAt', OrderByEnum.ASC)
       .getManyAndCount();
 
     this.logger.log(`${this.getNamespace()}.findAll`, {

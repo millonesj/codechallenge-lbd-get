@@ -30,32 +30,4 @@ export abstract class BasePaginationDto {
     example: 1,
   })
   page?: number = 1;
-
-  @IsOptional()
-  @IsString()
-  @ApiProperty({
-    description: 'keyword params',
-    example: '66666666-6',
-    required: false,
-  })
-  keyword?: string;
-
-  @IsOptional()
-  @IsString()
-  @IsEnum(OrderByEnum)
-  @ApiProperty({
-    description: 'Order by direction',
-    example: 'DESC',
-    required: false,
-  })
-  orderBy?: OrderByEnum;
-
-  @IsOptional()
-  @IsString()
-  @ApiProperty({
-    description: 'Order by property',
-    example: 'createdAt',
-    required: false,
-  })
-  orderByProperty?: string;
 }
