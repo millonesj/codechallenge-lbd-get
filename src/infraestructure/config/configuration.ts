@@ -35,4 +35,8 @@ export default () => ({
     tll: process.env.REDIS_CACHE_TTL,
     max: process.env.REDIS_MAX_ITEM_IN_CACHE,
   },
+  pagination: {
+    limit: process.env.PAGINATION_LIMIT,
+    maxLimit: process.env.PAGINATION_MAX_LIMIT,
+  },
 });

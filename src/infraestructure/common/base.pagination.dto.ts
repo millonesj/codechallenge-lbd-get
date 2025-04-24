@@ -1,6 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { IsEnum, IsOptional, IsString, Min } from 'class-validator';
+import config from '../../infraestructure/config/configuration';
+
+const { pagination } = config();
 
 export enum OrderByEnum {
   ASC = 'ASC',
@@ -9,17 +12,17 @@ export enum OrderByEnum {
 
 export abstract class BasePaginationDto {
   @IsOptional()
-  @Min(0)
+  @Min(1)
   @Type(() => Number)
   @ApiProperty({
     description: 'Pagination page size',
     required: false,
     example: 7,
   })
-  limit?: number;
+  limit?: number = parseInt(pagination.limit);
 
   @IsOptional()
-  @Min(0)
+  @Min(1)
   @Type(() => Number)
   @ApiProperty({
     description: 'Pagination page number',

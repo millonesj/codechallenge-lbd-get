@@ -1,9 +1,11 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CharacterProfileHistory } from 'src/domain/character-profile-history.entity';
-import { Repository } from 'typeorm';
+import { Brackets, Repository } from 'typeorm';
 import { CharacterProfilCreateDto } from './character-profile.create.dto';
 import { BaseService } from 'src/infraestructure/common/base.service';
+import { OrderByEnum } from 'src/infraestructure/common/base.pagination.dto';
+import { CharacterProfileHistoryPaginationDto } from 'src/presentation/historial/character-profile-history-pagination.dto';
 
 @Injectable()
 export class CharacterService extends BaseService<CharacterProfileHistory> {
@@ -49,5 +51,32 @@ export class CharacterService extends BaseService<CharacterProfileHistory> {
       isFound: true,
     });
     return existingRecord;
+  }
+
+  async findAll({
+    page,
+    limit,
+    orderBy = OrderByEnum.ASC,
+  }: CharacterProfileHistoryPaginationDto) {
+    this.logger.log(`${this.getNamespace()}.findAll`, {
+      start: true,
+    });
+
+    const queryBuilder =
+      this.characterProfileRepository.createQueryBuilder('ch');
+
+    const [items, count] = await queryBuilder
+      .take(limit)
+      .skip((page - 1) * limit)
+      .orderBy('ch.createdAt', orderBy)
+      .getManyAndCount();
+
+    this.logger.log(`${this.getNamespace()}.findAll`, {
+      found: { pageCount: items.length, total: count },
+    });
+    return {
+      items,
+      count,
+    };
   }
 }
