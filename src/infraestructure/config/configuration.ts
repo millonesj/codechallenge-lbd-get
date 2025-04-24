@@ -22,4 +22,11 @@ export default () => ({
     logging: process.env.DB_LOGS !== 'DISABLED',
     migrationsRun: process.env.NODE_ENV !== 'PROD',
   },
+  swapi: {
+    url: process.env.SWAPI_URL,
+  },
+  unsplash: {
+    url: process.env.UNSPLASH_URL,
+    clientId: process.env.URL_CLIENT_ID_UNSPLASH,
+  },
 });
